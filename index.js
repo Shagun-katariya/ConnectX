@@ -23,7 +23,7 @@ menuItems.forEach(item => {
     item.addEventListener('click', () => {
         changeActiveItem();
         item.classList.add('active')
-        if (item.id != 'notifications') {
+        if (item.id != 'notifications' || document.querySelector('.notifications-popup').style.display == 'block') {
             document.querySelector('.notifications-popup').style.display = 'none';
         }
         else {

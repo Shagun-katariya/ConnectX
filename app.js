@@ -1,9 +1,7 @@
 const express = require('express')
 const app = express();
 const hbs = require('hbs')
-const env = require('dotenv').config();
 const routes = require('./routes/main')
-const connectDB = require('./db/connect');
 
 
 hbs.registerHelper('jsonStringify', function (context) {
@@ -26,7 +24,6 @@ const port = process.env.PORT || 3000;
    
 const start = async () => { 
     try {
-        await connectDB(process.env.MONGO_URI);
         app.listen(port, () =>
             console.log(`Server is listening on port ${port}...`)
         );
